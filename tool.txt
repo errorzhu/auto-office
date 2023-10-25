@@ -1,0 +1,304 @@
+-------------------------------------------------------
+
+
+toolbox
+
+镜像站
+https://mirrors.ustc.edu.cn/centos/7.9.2009/isos/x86_64/
+https://mirrors.tuna.tsinghua.edu.cn/centos/7.9.2009/isos/x86_64/
+算法
+https://the-algorithms.com/category/sorts
+有用的信息源
+https://jar-download.com/?search_box=ngdbc
+rpmfind
+http://rpmfind.net/linux
+json
+http://www.lzltool.com/JsonToJava
+https://www.jsonschema2pojo.org/
+docker 镜像加速
+https://yeasy.gitbook.io/docker_practice/install/mirror
+spring
+https://start.spring.io/
+数据库排名
+https://db-engines.com/en/ranking
+apache 软件下载
+http://archive.apache.org/dist/zookeeper/
+maven nexus
+http://mirrors.163.com/.help/maven.html
+科学计算
+
+https://www.numpy.org.cn/reference/
+https://www.pypandas.cn/
+
+springboot例子
+https://github.com/ityouknow/spring-boot-examples
+https://github.com/527515025/springBoot
+
+优秀blog
+https://github.com/zq2599/blog_demos
+http://www.lcsays.com/
+https://scotch.io/tutorials/build-a-restful-api-with-flask-the-tdd-way
+
+机器学习相关
+https://zhuanlan.zhihu.com/p/355628008
+https://github.com/hpcaitech/ColossalAI
+
+hadoop
+https://github.com/vhma/winutils/blob/master/hadoop-2.7.7/bin/winutils.exe
+
+开源软件组织
+https://lfaidata.foundation/projects/
+开源源码下载处
+https://repo1.maven.org/maven2/org/apache/hive/hive-standalone-metastore/
+
+dockerfile
+https://github.com/irbigdata/data-dockerfiles
+
+https://www.devopstools.cn/
+
+https://github.com/github/platform-samples
+
+https://www.tiobe.com/tiobe-index/
+电子书
+https://github.com/EbookFoundation/free-programming-books/blob/main/books/free-programming-books-zh.md
+
+nginx
+https://www.digitalocean.com/community/tools/nginx?global.app.lang=zhCN
+-------------------------------------------------------
+yum相关
+https://www.itbkz.com/1105.html
+wget http://mirrors.163.com/.help/CentOS6-Base-163.repo
+wget http://mirrors.163.com/.help/CentOS7-Base-163.repo
+http://mirrors.aliyun.com/repo/epel-7.repo
+https://developer.aliyun.com/mirror/
+
+yum install --downloadonly --downloaddir=/download lrzsz
+-------------------------------------------------------
+docker
+
+docker images | awk '{if ($1 ~ /^(openshift|centos)/) print $1 " " $2 " " $3 }' | tr -c "a-z A-Z0-9_.\n-" "%" | while read REPOSITORY TAG IMAGE_ID
+do
+  echo "== Saving $REPOSITORY $TAG $IMAGE_ID =="
+  docker  save   -o /path/to/save/$REPOSITORY-$TAG-$IMAGE_ID.tar $IMAGE_ID
+done
+
+docker images |grep -v REPOSITORY | awk '{ print $1 " " $2 " " $3 }' | tr -c "a-z A-Z0-9_.\n-" "%" | while read REPOSITORY TAG IMAGE_ID
+do
+  echo "== Saving $REPOSITORY $TAG $IMAGE_ID =="
+  docker  save   -o /home/docker/$REPOSITORY-$TAG-$IMAGE_ID.tar $IMAGE_ID
+done
+
+
+sudo docker ps -a | grep "Exited" | awk '{print $1 }'|xargs sudo docker stop
+sudo docker ps -a | grep "Exited" | awk '{print $1 }'|xargs sudo docker rm
+sudo docker images|grep none|awk '{print $3 }'|xargs sudo docker rmi
+
+
+sudo docker rm $(sudo docker ps -qf status=exited)
+
+
+
+
+
+docker run --rm -it -v $(pwd):/data timvisee/ffsend upload
+-------------------------------------------------------
+java
+http://jdk.java.net/archive/
+https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
+https://gist.github.com/wavezhang/ba8425f24a968ec9b2a8619d7c2d86a6
+
+-------------------------------------------------------
+python
+
+https://www.programcreek.com/python/
+
+python setup.py bdist_egg
+
+python -m SimpleHTTPServer 8000
+
+
+
+pip config set install.trusted-host 192.168.5.34
+
+pip install --upgrade ansible=2.11
+
+
+
+pip download -d package -r requirements.txt --only-binary=:all: --platform linux_x86_64  -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install --no-index --find-links=/packages/ -r requirements.txt
+
+
+
+
+pip install xlrd -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+
+pip install paho-mqtt -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+
+pip3 install netifaces -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+
+pip3 install beautifulsoup4 -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+
+
+pip install langflow -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
+
+
+conda config --add channels http://mirrors.aliyun.com/pypi/simple/
+conda config --remove channels https://mirrors.aliyun.com/pypi/simple/
+
+
+-------------------------------------------------------
+maven
+
+https://developer.aliyun.com/mvn/view
+
+https://mvnrepository.com/
+mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=myapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+mvn archetype:generate -DinteractiveMode=false -DgroupId=org.example -DartifactId=spark-ee -Dversion=1.0-SNAPSHOT -DarchetypeGroupId=org.scala-tools.archetypes -DarchetypeArtifactId=scala-archetype-simple -DarchetypeVersion=1.2 
+
+mvn archetype:generate   -DgroupId=org.zhu.flink -DartifactId=flink-test    -DarchetypeGroupId=org.apache.flink -DarchetypeArtifactId=flink-quickstart-scala     -DarchetypeVersion=1.11.1  -DinteractiveMode=false
+
+mvn archetype:generate   -DgroupId=org.zhu.flink -DartifactId=flink-test    -DarchetypeGroupId=org.apache.flink -DarchetypeArtifactId=flink-quickstart-java     -DarchetypeVersion=1.11.1  -DinteractiveMode=false
+
+mvn archetype:generate -DgroupId=org.example.monolith -DartifactId=monolith -DarchetypeArtifactId=scaffold-archetype -DarchetypeVersion=1.0-SNAPSHOT -DinteractiveMode=false
+
+
+
+mvn archetype:create-from-project
+mvn  install .
+mvn archetype:crawl 
+mvn archetype:generate -DarchetypeCatalog=local
+
+
+
+-Dmaven.test.skip=true  不编也不执行
+-DskipTests 
+
+-------------------------------------------------------
+maven clean
+for i in `find  /maven/m2/repository/ -name "_remote.repositories"` ;do rm -f $i ;done
+for i in `find  /maven/m2/repository/ -name "*.lastUpdated"` ;do rm -f $i ;done
+-------------------------------------------------------
+
+tar
+tar -zcvf img.tar.gz img1 img2
+tar -zxvf
+tar xvf xxx.tar
+xz -d xxx.tar.xz
+tar -xvJf Python-3.7.2.tar.xz
+-------------------------------------------------------
+ssh
+ssh-keygen
+ssh-keygen -m PEM -t rsa
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.5.203
+------------------------------------------------------- 
+shell
+-d ：判断制定的是否为目录
+-z：判断制定的变量是否存在值
+-f：判断制定的是否为文件
+-L:判断制定的是否为符号链接
+-r：判断制定的是否可读
+-w:判断制定的是否可写
+-x：判断存在的对象是否可以执行
+!：测试条件的否定符号
+
+-------------------------------------------------------
+find
+find . -name "*.text" -exec sed -i 's/curl/curl -H "Content-Type:application/json"/g' {} \;
+-------------------------------------------------------
+vagrant
+
+vagrant plugin install vagrant-disksize
+vagrant box list
+vagrant up
+vagrant reload
+vagrant halt
+vagrant destroy
+
+-------------------------------------------------------
+mysql
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+-------------------------------------------------------
+python -m pwiz -e mysql -u root -H 192.168.9.238 --password -p 3306  cosmo_bdp > model.py
+
+
+-------------------------------------------------------
+time
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+rm -f /etc/localtime
+ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' > /etc/timezone
+-------------------------------------------------------
+spring
+https://start.spring.io/
+
+-------------------------------------------------------
+
+tcpdump
+tcpdump -i eth0 host 106.11.43.160 -w ttt.cap
+
+-------------------------------------------------------
+cloud native
+https://www.infoq.cn/article/q8riml5udkqgexw33ert
+
+-------------------------------------------------------
+rancher
+http://docs.rancher.cn/rancher2.5/
+http://mirror.cnrancher.com/
+https://www.suse.com/suse-rancher/support-matrix/all-supported-versions/rancher-v2-5-9/
+
+
+
+
+-------------------------------------------------------
+
+edge
+
+-------------------------------------------------------
+agile
+http://www.agilemodeling.com/essays/agileDocumentation.htm
+
+-------------------------------------------------------
+github
+https://github.com/sairson/Yasso
+
+-------------------------------------------------------
+gitlab
+https://docs.gitlab.com/ee/ci/examples/
+-------------------------------------------------------
+工具下载地址
+https://gitee.com/robergroup/pdman-release#https://gitee.com/robergroup/pdman
+http://hi.pcmoe.net/
+
+-------------------------------------------------------
+markdown
+swagger-markdown.cmd -i .\a.yaml -o test.md
+
+
+paper
+https://dl.acm.org/
+-------------------------------------------------------
+gradle
+gradle init --type java-application
+-------------------------------------------------------
+系统命令
+timedatectl set-timezone UTC
+
+-------------------------------------------------------
+excel
+=FILTERXML(WEBSERVICE("http://fanyi.youdao.com/translate?&i="&A2&"&doctype=xml&version"),"//translation")
+
+
+-------------------------------------------------------
+sed 
+sed -i '/i love you/{n;s/year/year1/;}' sed.c
+-------------------------------------------------------
+csdn
+  $("#article_content").removeAttr("style");
+  $(".hide-article-box").remove();
+  
+-------------------------------------------------------
+运维相关
+	进程存活时间
+	ps -p 17283  -o etimes
+
